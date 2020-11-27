@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Fake News Detection</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=BioRhyme' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bungee Inline' rel='stylesheet'> 
+    <link href='https://fonts.googleapis.com/css?family=Cherry Swash' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Margarine' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+ 
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="margin-bottom: 0px; background-color: #000000;">
+      <a class="navbar-brand" href="http://127.0.0.1:5000/" id="title" style="color:white; font-family: Bangers; font-size: 20px;" >
+        <img src="{{ url_for('static', filename='logo.png') }}" href="http://127.0.0.1:5000/" width="70" height="45" alt="" style="padding-right: 15px;">FAKE NEWS DETECTOR</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+ 
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav mr-auto">
+       <li class="nav-item active">
+        <a class="nav-link" href="http://127.0.0.1:5000/" style="color:white; font-family:BioRhyme; font-size: 15px; text-align: center;">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://127.0.0.1:5000/" style="color:white; font-family:BioRhyme; font-size: 15px; text-align: center;">About Us</a>
+      </li>  
+      <li class="nav-item">
+        <a class="nav-link" href="http://127.0.0.1:5000/" style="color:white; font-family:BioRhyme; font-size: 15px; text-align: center;">Help!</a>
+      </li>     
+    
+      </ul>
+      </div>
+ </nav>
+
+ <div class="jumbotron" style="background-image: url('{{ url_for('static', filename='mark.jpg') }}');background-size:100% 100%; margin-bottom: 0px;">
+
+      <h1 class="display-5" style="font-family:BioRhyme; color: white;"><mark>FAKE NEWS Detection</mark></h1>
+      <br>
+       <p class="lead" style="font-family:Cherry Swash; color: white;"><mark>An important goal in improving the trustworthiness of information in online social networks is to identify the fake news timely.</mark></p>
+       <hr class="my-4">
+       <p style="font-family:Cherry Swash; font-size: 18px; color: white;"><mark>With deceptive words, online social network users can get infected by these online fake news easily, which has brought about tremendous effects on  the offline society already.An important goal in improving the trustworthiness of information in online social networks is to identify the fake news timely.</mark></p>
+       <p class="lead">
+       <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
+      </p>
+          
+<br>
+<br>
+
+<div class= "container-fluid" style="background-image: url('{{ url_for('static', filename='tech.jpg') }}'); background-size:100% 100%;">
+  <br>
+  <form action="/predict" method="post">
+    <p style="font-family: 'BioRhyme'; font-size:23px; "> ENTER THE SUSPICIOUS NEWS ARTICLE HERE: </p>
+    <div class="form-group">   
+      <label for="exampleInputEmail1" style="font-family: BioRhyme;">Headline:</label>
+    <input type="text" class="form-control" name="headline" id="exampleInputEmail1" required="required" autocomplete="off">    
+  </div>
+  <div class="form-group">   
+      <label for="exampleInputEmail1" style="font-family: BioRhyme;">Text:</label>
+    <input type="text" class="form-control" name="article" id="exampleInputEmail1" required="required" autocomplete="off">    
+  </div>
+  <div class="form-group">
+   <label for="exampleInputEmail1" style="font-family: BioRhyme;">Subject:</label>
+    <input type="text" class="form-control" name="subject" id="exampleInputEmail1" required="required" autocomplete="off">    
+  </div>   
+  <button type="submit" class="btn btn-dark" style="font-family: 'Merienda One';">Detect</button>
+</form>
+    <br>
+
+    <div class = "container-fluid">
+      <p style="font-family:'Roboto Slab', serif;font-size: 40px; text-align: center; color: purple;"> {{prediction_text}}</p>
+    </div>    
+    <br>    
+
+</div>
+</div>
+
+
+
+<div class= "container-fluid"  style="background-image: url('{{ url_for('static', filename='fab.jpg') }}'); background-size:100% 100%;">
+<div class="container-fluid">
+  <br>
+  <br>
+  <div style="font-family:BioRhyme; text-align: center;">
+  	    <h1><mark style="background-color: white;"> Data Visualization Diagrams </mark></h1>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-sm">
+      <img  src="static/stat1.jpg" alt="" height="400" width="600">
+    </div>
+    <div class="col-sm">
+      <img src="static/stat2.jpg" alt="" height="400" width="600">
+  </div>
+</div>
+<br>
+  <div class="row">
+    <div class="col-sm">
+      <img src="static/stat3.jpg" alt="" height="400" width="600">
+    </div>
+    <div class="col-sm">
+      <img src="static/stat4.jpg" alt="" height="400" width="600">
+  </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm">
+      <img  src="static/stat5.jpg" alt="" height="400" width="600">
+    </div>
+    <div class="col-sm">
+      <img src="static/stat6.jpg" alt="" height="400" width="600">
+  </div>  
+</div> 
+<br>
+<br>
+</div>
+</div>
+
+
+
+<footer class="page-footer font-small blue pt-4" style="background-image: url('{{ url_for('static', filename='13.jpg') }}'); background-size:100% 100%;">
+
+  <div class="container-fluid text-center text-md-left">
+
+     <div class="row">
+
+       <div class="col-md-4 mt-md-0 mt-3">        
+        <h5 class="text-uppercase" style="font-family: 'Walter Turncoat', cursive;">FAKE NEWS Detector</h5>
+        <p>Presented by Medi-Caps University</p>
+
+      </div>
+       <hr class="clearfix w-100 d-md-none pb-3">
+       <div class="col-md-3 mb-md-0 mb-2">
+       <h5 class="text" style="font-family: 'Aladin', cursive; font-size: 22px;">Sohan Khedekar</h5>
+       <ul class="list-unstyled">
+       <li>
+         Email: <a href="#!" style="font-family: 'Aladin', cursive; color:black;">sohankhedekar9826@gmail.com</a>
+        </li>
+         <li>
+         ERN: <a href="#!" style="font-family: 'Aladin', cursive; color:black;">EN17IT301098</a>
+        </li>
+                 
+        </ul>
+
+      </div>
+      <div class="col-md-3 mb-md-0 mb-2">        
+        <h5 class="text" style="font-family: 'Aladin', cursive; font-size: 22px;">Sheikh Mohammed Sajid</h5>
+
+        <ul class="list-unstyled">
+          <li>
+           Email: <a href="#!" style="font-family: 'Aladin', cursive; color:black;">sajeedsheikh1608@gmail.com</a>
+          </li>    
+           <li>
+         ERN: <a href="#!" style="font-family: 'Aladin', cursive; color:black;">EN17IT301090</a>
+        </li>      
+          </ul>
+
+      </div>    
+
+        <div class="col-md-2 mb-md-0 mb-2">        
+        <h5 class="text" style="font-family: 'Aladin', cursive; font-size: 22px;">Sumit Sen</h5>
+
+        <ul class="list-unstyled">
+          <li>
+           Email: <a href="#!" style="font-family: 'Aladin'; font-size:18px; cursive; color:black;">snipersumit@gmail.com</a>
+          </li>  
+          <li>
+         ERN: <a href="#!" style="font-family: 'Aladin', cursive; color:black;">EN17IT301102</a>
+        </li> 
+          </ul>
+         </div>   
+      </div>
+   </div>
+
+  <div class="footer-copyright text-center py-3" style="color:black; font-family: Margarine;">© 2020 Copyright:
+    <a href="https://www.medicaps.ac.in/" style="color:black; font-family: Margarine;">MediCapsUniversity.com</a>
+  </div>
+  </footer>
+
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
