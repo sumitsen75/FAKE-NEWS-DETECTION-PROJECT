@@ -69,7 +69,6 @@ jupyter-core==4.5.0
 jupyterlab==1.1.4
 jupyterlab-server==1.0.6
 keyring==18.0.0
-kiwisolver==1.1.0
 menuinst==1.4.16
 mistune==0.8.4
 mkl-fft==1.0.14
