@@ -58,8 +58,6 @@ path.py==12.0.1
 pathlib2==2.3.5
 pickleshare==0.7.5
 py==1.8.0
-pycodestyle==2.5.0
-pywin32==223
 requests==2.22.0
 scikit-image==0.15.0
 scikit-learn==0.21.3
