@@ -70,8 +70,6 @@ jupyterlab==1.1.4
 jupyterlab-server==1.0.6
 keyring==18.0.0
 kiwisolver==1.1.0
-lazy-object-proxy==1.4.2
-libarchive-c==2.8
 menuinst==1.4.16
 mistune==0.8.4
 mkl-fft==1.0.14
